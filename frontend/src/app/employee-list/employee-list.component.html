@@ -1,0 +1,33 @@
+<div class="employee-list">
+    <h2>Employee List</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Salary</th>
+          <th>    &#32; &#32;   Actions</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.department }}</td>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.salary }}</td>
+          <td>
+            <button (click) = "updateEmployee(employee.id)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button [routerLink]="'/employee-add'" class="btn btn-primary">
+      Add Employee
+    </button>
+  </div>
+  

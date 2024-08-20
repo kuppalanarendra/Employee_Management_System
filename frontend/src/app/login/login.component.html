@@ -1,0 +1,26 @@
+<div class="container col-md-5">
+    <h1 style="color: red;">User Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()" class="col-8">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" formControlName="username" class="form-control" id="username" name="username">
+            <div *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.touched || loginForm.get('username')?.dirty)" class="text-danger">
+                <div *ngIf="loginForm.get('username')?.errors?.['required']">Username is required.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="password" name="password">
+            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="text-danger">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+        <br>
+        <br>
+        <p>New User Create  Account?
+            <a routerLink="/user">sign-up</a>
+          </p>
+    </form>
+</div>
